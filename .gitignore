@@ -1,0 +1,12 @@
+# dati e risultati restano fuori da GitHub
+*.RData
+*.Rdata
+*.rds
+*.csv
+*.png
+*.pdf
+*.log
+nohup.out
+.Rhistory
+.RData
+.Rproj.user/
