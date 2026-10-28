@@ -10,8 +10,13 @@ GITHUB_REPO_URL="$1"
 COMMIT_MESSAGE="${2:-Update pipeline $(date +%Y-%m-%d)}"
 
 if [ -z "$GITHUB_REPO_URL" ]; then
-    echo "uso: ./upload.sh git@github.com:manciounipd/mediate_as_alternative.git [\"messaggio\"]"
+    echo "uso: ./upload.sh <nome_repo | git@github.com:manciounipd/<nome_repo>.git> [\"messaggio\"]"
     exit 1
+fi
+
+# solo il nome del repo -> costruisco l'indirizzo completo
+if [[ "$GITHUB_REPO_URL" != *:* ]]; then
+    GITHUB_REPO_URL="git@github.com:manciounipd/${GITHUB_REPO_URL%.git}.git"
 fi
 
 # init repo se non esiste
